@@ -11,7 +11,7 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // serve static content for the app from the "public/assets" directory
-app.use(express.static(__dirname + "public"));
+app.use(express.static("public"));
 
 // set up Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));

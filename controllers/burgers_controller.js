@@ -4,24 +4,21 @@ var router = express.Router();
 // Import the model (cat.js) to use its database functions.
 var burger = require("../models/burger.js");
 
+
 router.get("/", function(req,res) {
   res.redirect("/burgers");
 });
 
 router.get("/burgers", function(req,res) {
 
-    burger.selectAll(function(data) {
-      var hbsObject = {
-        burger: data
-      };
-      console.log(data);
-      res.render("index", {burgers : data });
+    burger.all(function(data) {
+      res.render("index", {burger_data : data });
     });
 
 });
 
 router.post("/burgers/create", function(req, res) {
-  burger.createOne(req.body.burger_name, function(result) {
+  burger.create(req.body.burger_name, function(result) {
     console.log(result);
 
   });
@@ -29,8 +26,7 @@ router.post("/burgers/create", function(req, res) {
 });
 
 router.put("/burgers/update", function(req, res) {
-  console.log(req.body);
-  burger.updateOne(req.body.id, function(result) {
+  burger.update(req.body.burger_id, function(result) {
     console.log(result);
 
   });
