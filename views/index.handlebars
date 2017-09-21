@@ -8,7 +8,7 @@
           <li>
             <p>
               {{this.burger_name}}
-              <form action="/?_method=PUT" method="POST">
+              <form action="/burgers/update/?_method=PUT" method="POST">
                 <input type="hidden" name="id" value="{{this.id}}">
                 <button class="btn btn-warning" type="submit">Devour!</button>
               </form>

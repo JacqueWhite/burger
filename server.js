@@ -8,13 +8,10 @@ var exphbs = require('express-handlebars');
 var app = express();
 
 // // if the app is on heroku, use heroku's port; if local, use port 8080
-// var PORT = process.env.PORT || 8080;
-
-//local
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 // serve static content for the app from the "public/assets" directory
-app.use(express.static(__dirname + "/public/assets"));
+app.use(express.static(__dirname + "public"));
 
 // set up Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,7 +27,9 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // pass app to the burgers_controller.js so that the file has access to the sever
-// var routes = require('./controllers/burgers_controller')(app);
+var routes = require('./controllers/burgers_controller');
+
+app.use("/", routes);
 
 // run the server
 app.listen(PORT, function() {
