@@ -4,14 +4,12 @@ var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 
-// create the server
-var app = express();
-
 // // if the app is on heroku, use heroku's port; if local, use port 8080
 var PORT = process.env.PORT || 8080;
+var app = express();
 
 // serve static content for the app from the "public/assets" directory
-app.use(express.static("public"));
+app.use('/public', express.static("public"));
 
 // set up Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
