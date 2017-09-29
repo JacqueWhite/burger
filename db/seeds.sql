@@ -8,3 +8,9 @@ VALUES ("royale with cheese", false);
 
 INSERT INTO burgers (burger_name, devoured)
 VALUES ("bacon blue cheese burger", false);
+
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("veggie burger", false);
+
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("bison burger", false);
